@@ -29,8 +29,8 @@ function hasCycle(head: ListNode | null): boolean {
         if(fastPointer === slowPointer) {
             return true;
         }
-        return false;
     }
+    return false;
 };
 // @lc code=end
 
