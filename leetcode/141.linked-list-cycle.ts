@@ -16,11 +16,13 @@
  *     }
  * }
  */
-
+// Use two pointers, fast and slow. 
+// The tricky part is to recognize the two pointers would eventually meet, provided they are in a circle
 function hasCycle(head: ListNode | null): boolean {
     let fastPointer = head;
     let slowPointer = head;
-    while(fastPointer.next && slowPointer) {
+    // there is no need to check the slow pointer, because we already checked before
+    while(fastPointer && fastPointer.next) {
         fastPointer = fastPointer.next.next;
         slowPointer = slowPointer.next;
 
