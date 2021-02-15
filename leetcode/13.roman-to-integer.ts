@@ -8,7 +8,6 @@
 function romanToInt(s: string): number {
     enum map {
         I = 1,
-        IV = 4,
         IX = 9,
         V = 5,
         X = 10,
