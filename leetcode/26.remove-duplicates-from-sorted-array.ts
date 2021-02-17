@@ -53,5 +53,8 @@ function removeDuplicates(nums: number[]): number {
     nums.splice(slow);
     return slow + 1;
 }
-
+/* Accepted
+161/161 cases passed (96 ms)
+Your runtime beats 82.47 % of typescript submissions
+Your memory usage beats 79.73 % of typescript submissions (41.5 MB) */
 // @lc code=end
