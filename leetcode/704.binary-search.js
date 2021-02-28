@@ -28,7 +28,6 @@ var search = function (nums, target) {
 function BinarySearch(nums, target, baseIndex) {
     // 当长度为1还找不到的时候，那么就是 -1
     if (nums.length === 1) {
-        console.log(nums[0]);
         return nums[0] === target ? baseIndex : -1;
     }
     // 当长度为2的时候
