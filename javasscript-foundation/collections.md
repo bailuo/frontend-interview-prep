@@ -61,4 +61,10 @@ class User {
 
 #### Set
 
+1. 加强版的 Map
+2. 使用 add 增加元素，使用 delete 和 clear 删除元素
+3. add 返回集合的实例，delete 返回集合中是否还存在这个元素
+
 #### WeakSet
+
+和 WeakMap 一样，WeakSet 的 key 在没有引用时会消失，而且只能使用 Object 或者 Object 的继承实现
