@@ -16,7 +16,9 @@ const promise1 = new Promise((onResolved, onRejected) => onResolved());
 const promise2 = new Promise((onResolved, onRejected) => onRejected());
 ```
 
-2. Promise.then 返回的是一个新的 Promise，其状态是 resolved，是第二个参数其实也是 resolved，只不过在第二个参数的地方，调用 onRejcted, 将其状态改变成
+2. Promise.prototype.then 返回的是一个新的 Promise，起状态取决于Promise本身的处理。比如如果是一个已经resolved的Promise，那么这个状态就是resolved，相应的，如果执行过Promise.reject，那么状态就是rejected。
+
+Promise.prototype.then接收两个参数，分别为resolve和reject的回调
 
 ```js
 const p = Promise.reject('foo');
