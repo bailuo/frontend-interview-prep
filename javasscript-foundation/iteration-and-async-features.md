@@ -47,3 +47,31 @@ p.catch(onRejected) // rejected
    4.2 通常用于清理在过程中产生的变量重置或者清理, 也用于处理在then, catch中都会出现的冗余代码
    4.3 finally 返回的结果也是一个 promise
    4.4 finally 不论前面情况如何都会把 finally 之前的状态向后面传递
+
+6. 错误处理
+   6.1 throw 和promise的reject类似都是表示一种中断的状态和需要处理. 如果不处理，还是会报```Uncaught (in promise) Error```
+   6.2 错误处理的时候，可能会有一个误区
+
+   ```js
+   try {
+       Promise.reject(Error('foo))
+   }catch(e) {
+       // error handle ???
+   }
+   ```
+
+   外面的try-catch块是同步的，而promise是异步的，因此无法处理promise报出的错误, 但是可以这样处理
+
+   ```js
+   const p = new Promise((resolve, reject) => {
+       try {
+           throw Error('error')
+       }catch(e){
+           // yes we can handle error here
+       }
+       resolve('bar');
+   });
+   ```
+
+  如果想处理promise的错误还是要使用then和catch
+7. Promise chain
