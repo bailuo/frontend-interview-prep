@@ -17,7 +17,6 @@
  * @param {TreeNode} root
  * @return {number}
  */
-<<<<<<< HEAD
 var countNodes = function (root) {
     if (!root) {
         return 0;
@@ -43,10 +42,21 @@ function countSubTree(node) {
 // @after-stub-for-debug-begin
 module.exports = countNodes;
 // @after-stub-for-debug-end
-=======
-var countNodes = function(root) {
-    
-};
+
+/* very basic approach, brutal force
+Accepted
+18/18 cases passed (108 ms)
+Your runtime beats 73.42 % of javascript submissions
+Your memory usage beats 77.64 % of javascript submissions (56.6 MB)
+ */
+function countSubTree(node) {
+    if (!node) {
+        return 0;
+    }
+    return countSubTree(node.left) + countSubTree(node.right) + 1;
+}
 // @lc code=end
 
->>>>>>> 67e4431 (save a empty file before move to another branch)
+// @after-stub-for-debug-begin
+module.exports = countNodes;
+// @after-stub-for-debug-end
