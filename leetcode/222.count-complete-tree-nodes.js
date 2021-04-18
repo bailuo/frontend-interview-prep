@@ -17,8 +17,28 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var countNodes = function(root) {
-    
+var countNodes = function (root) {
+    if (!root) {
+        return 0;
+    }
+    let depth = 1;
+    return countSubTree(root.left, depth) + countSubTree(root.right, depth) + 1;
 };
+
+/* very basic approach, brutal force
+Accepted
+18/18 cases passed (108 ms)
+Your runtime beats 73.42 % of javascript submissions
+Your memory usage beats 77.64 % of javascript submissions (56.6 MB)
+ */
+function countSubTree(node) {
+    if (!node) {
+        return 0;
+    }
+    return countSubTree(node.left) + countSubTree(node.right) + 1;
+}
 // @lc code=end
 
+// @after-stub-for-debug-begin
+module.exports = countNodes;
+// @after-stub-for-debug-end
