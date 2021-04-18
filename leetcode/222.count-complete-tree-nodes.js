@@ -17,6 +17,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
+<<<<<<< HEAD
 var countNodes = function (root) {
     if (!root) {
         return 0;
@@ -42,3 +43,10 @@ function countSubTree(node) {
 // @after-stub-for-debug-begin
 module.exports = countNodes;
 // @after-stub-for-debug-end
+=======
+var countNodes = function(root) {
+    
+};
+// @lc code=end
+
+>>>>>>> 67e4431 (save a empty file before move to another branch)
