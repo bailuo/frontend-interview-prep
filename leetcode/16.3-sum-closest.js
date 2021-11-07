@@ -27,7 +27,7 @@ var threeSumClosest = function (nums, target) {
             if (closetSum === undefined) {
                 closetSum = currentSum;
             } else {
-                // TODO compare the gap between sum - target and closest sum and target
+                // compare the gap between sum - target and closest sum and target
                 const currentSumGap = Math.abs(currentSum - target);
                 const cloestSumGap = Math.abs(closetSum - target);
                 closetSum = currentSumGap < cloestSumGap ? currentSum : closetSum;
