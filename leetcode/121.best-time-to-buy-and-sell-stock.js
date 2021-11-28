@@ -13,6 +13,13 @@
  * @return {number}
  */
 var maxProfit = function (prices) {
+    return maxProfixMinPrice(prices);
+};
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+function maxProfixBrutal(prices) {
     const len = prices.length;
     let max = 0;
     const priceMap = {};
@@ -25,6 +32,7 @@ var maxProfit = function (prices) {
         if (left > 0 && leftPrice >= prices[left - 1]) {
             continue;
         }
+        // calculate price gap between the left and any elements on the right
         while (left < right) {
             const rightPrice = prices[right];
             if (right < len - 1 && rightPrice <= prices[right + 1]) {
@@ -39,5 +47,23 @@ var maxProfit = function (prices) {
         priceMap[leftPrice] = max;
     }
     return max;
-};
+}
+// Accepted
+// 211/211 cases passed (116 ms)
+// Your runtime beats 30.07 % of javascript submissions
+// Your memory usage beats 34.48 % of javascript submissions (48.9 MB)
+// offocial solution
+function maxProfixMinPrice(prices) {
+    const arrLength = prices.length;
+    let minPrice = Number.MAX_SAFE_INTEGER;
+    let maxProfit = 0;
+    for (let i = 0; i < arrLength; i++) {
+        if (prices[i] < minPrice) {
+            minPrice = prices[i];
+            continue;
+        }
+        maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+    }
+    return maxProfit;
+}
 // @lc code=end
