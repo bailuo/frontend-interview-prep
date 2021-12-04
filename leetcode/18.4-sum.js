@@ -3,7 +3,9 @@
  *
  * [18] 4Sum
  */
-
+// 289/289 cases passed (108 ms)
+// Your runtime beats 64.88 % of javascript submissions
+// Your memory usage beats 91.74 % of javascript submissions (40.4 MB)
 // @lc code=start
 /**
  * @param {number[]} nums
@@ -18,7 +20,7 @@ var fourSum = function (nums, target) {
     if (nums === undefined || nums.length < 4) {
         return results;
     }
-    for (let idx = 0; idx < len - 3 && nums[idx] <= target; idx++) {
+    for (let idx = 0; idx < len - 3; idx++) {
         // skip duplicated elements
         if (idx > 0 && nums[idx] === nums[idx - 1]) {
             continue;
