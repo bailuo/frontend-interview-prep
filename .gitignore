@@ -3,3 +3,6 @@
 node_modules/
 .DS_Store
 leetcode/.DS_Store
+javascript-leetcode/easy/dist
+javascript-leetcode/medium/dist
+javascript-leetcode/hard/dist
