@@ -5,19 +5,36 @@
  */
 
 // @lc code=start
-// 62/62 cases passed (76 ms)
-// Your runtime beats 79.94 % of javascript submissions
-// Your memory usage beats 73.54 % of javascript submissions (38.7 MB)
+/* Accepted
+ * 64/64 cases passed (136 ms)
+ * Your runtime beats 5.16 % of javascript submissions
+ * Your memory usage beats 95.43 % of javascript submissions (38.6 MB)* */
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
  */
 var searchInsert = function (nums, target) {
-    let position = 0;
-    while (nums[position] < target) {
-        position++;
+    let end = nums.length - 1;
+    let start = 0;
+    if (target > nums[end]) {
+        return end + 1;
     }
-    return position;
+    if (target < nums[start]) {
+        return 0;
+    }
+    while (end - start >= 2) {
+        const mid = Math.ceil((start + end) / 2);
+        if (nums[mid] === target) {
+            return mid;
+        }
+        if (nums[mid] < target) {
+            start = mid;
+        }
+        if (nums[mid] > target) {
+            end = mid;
+        }
+    }
+    return nums[start] === target ? start : end;
 };
 // @lc code=end

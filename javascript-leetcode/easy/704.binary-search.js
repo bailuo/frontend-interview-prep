@@ -10,12 +10,12 @@
  * @param {number} target
  * @return {number}
  */
-// Accepted
-// 46/46 cases passed (76 ms)
-// Your runtime beats 92.58 % of javascript submissions
-// Your memory usage beats 9.15 % of javascript submissions (42.8 MB)
+/* Accepted
+ * 47/47 cases passed (80 ms)
+ * Your runtime beats 68.69 % of javascript submissions
+ * Your memory usage beats 10.61 % of javascript submissions (42.6 MB)
+ * */
 var search = function (nums, target) {
-    const mid = Math.floor(nums.length / 2);
     if (nums.length === 0) {
         return -1;
     }
@@ -41,5 +41,27 @@ function BinarySearch(nums, target, baseIndex) {
     }
     return BinarySearch(partial, target, baseIndex);
 }
+/* Accepted
+ * 47/47 cases passed (80 ms)
+ * Your runtime beats 68.69 % of javascript submissions
+ * Your memory usage beats 34.22 % of javascript submissions (42.4 MB)
+ */
+// in place search, low space complicaty,
+var searchOne = function (nums, target) {
+    if (target > nums[nums.length - 1] || target < nums[0]) {
+        return -1;
+    }
+    return searchHelp(nums, target, 0, nums.length - 1);
+};
 
+function searchHelp(nums, target, start, end) {
+    // one or two elements
+    if (end - start <= 1) {
+        return target === nums[start] ? start : target === nums[end] ? end : -1;
+    }
+    // more than two
+    const mid = Math.ceil((start + end) / 2);
+    const midNum = nums[mid];
+    return midNum === target ? mid : target > midNum ? searchHelp(nums, target, mid, end) : searchHelp(nums, target, start, mid);
+}
 // @lc code=end
