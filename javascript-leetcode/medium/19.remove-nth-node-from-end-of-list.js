@@ -12,10 +12,11 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
-//  Accepted
-//  208/208 cases passed (125 ms)
-//  Your runtime beats 8.89 % of javascript submissions
-//  Your memory usage beats 92.53 % of javascript submissions (39.8 MB)
+/*  Accepted
+ * 208/208 cases passed (95 ms)
+ * Your runtime beats 38.8 % of javascript submissions
+ * Your memory usage beats 83.81 % of javascript submissions (39.9 MB)
+ * */
 /**
  * @param {ListNode} head
  * @param {number} n
@@ -34,13 +35,14 @@ var removeNthFromEnd = function (head, n) {
         fastIndex++;
     }
     const targetNodeIndex = fastIndex - n + 1;
+    // it is possible that the node does not move
+    if (targetNodeIndex === 0) {
+        return slow.next;
+    }
     // stop at the node before the target node
     while (slowIndex < targetNodeIndex - 1) {
         slow = slow.next;
         slowIndex++;
-    }
-    if (slowIndex === 0 && targetNodeIndex === 0) {
-        return slow.next;
     }
     slow.next = slow.next.next;
     return head;
