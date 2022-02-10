@@ -9,29 +9,34 @@
  * @param {number} n
  * @return {number}
  */
-/* Accepted
-45/45 cases passed (76 ms)
-Your runtime beats 73.73 % of javascript submissions
-Your memory usage beats 26.45 % of javascript submissions (38.6 MB) */
-
+/*
+ * Accepted
+ * 45/45 cases passed (69 ms)
+ * Your runtime beats 78.59 % of javascript submissions
+ * Your memory usage beats 24.51 % of javascript submissions (41.3 MB)
+ *  */
 // very basic practice of dynamic programming
 var climbStairs = function (n) {
-    if (n <= 2) {
+    if (n < 3) {
         return n;
     }
-    const map = {};
-    return climb(n, map);
+    const map = new Map();
+    map.set(1, 1);
+    map.set(2, 2);
+    return climbHelper(n, map);
 };
 
-function climb(count, map) {
-    if (count <= 2) {
-        return count;
+function climbHelper(n, map) {
+    if (n < 3) {
+        return n;
     }
-    if (map[count]) {
-        return map[count];
+    if (map.has(n)) {
+        return map.get(n);
     }
-    map[count - 1] = map[count - 1] || climb(count - 1, map);
-    map[count - 2] = map[count - 2] || climb(count - 2, map);
-    return map[count - 1] + map[count - 2];
+    const far = climbHelper(n - 2, map);
+    map.set(n - 2, far);
+    const near = climbHelper(n - 1, map);
+    map.set(n - 1, near);
+    return near + far;
 }
 // @lc code=end
