@@ -9,6 +9,11 @@
  * @param {number[][]} triangle
  * @return {number}
  */
+/*
+ * Accepted
+ * 44/44 cases passed (93 ms)
+ * Your runtime beats 56.38 % of javascript submissions
+ * Your memory usage beats 5.1 % of javascript submissions (47 MB) */
 var minimumTotal = function (triangle) {
     const map = new Map();
     const rowCount = triangle.length;
@@ -43,8 +48,6 @@ function traversal(triangle, row, col, map) {
     } else {
         const val1 = traversal(triangle, row - 1, col, map);
         const val2 = traversal(triangle, row - 1, col - 1, map);
-        map.set(`${row - 1}- ${col}`, val1);
-        map.set(`${row - 1}- ${col - 1}`, val2);
         nextRowResult = Math.min(val1, val2);
     }
     map.set(`${row}-${col}`, triangle[row][col] + nextRowResult);
