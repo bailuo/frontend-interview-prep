@@ -41,3 +41,23 @@ function isSubPathValid(root, currentSum, targetSum) {
     return currentSum === targetSum;
 }
 // @lc code=end
+
+var hasPathSum2 = function (root, targetSum) {
+    if (!root) {
+        return false;
+    }
+    return sumHelper(root, targetSum);
+};
+// one tricky part is, you have to go down the entire path
+// if you stop when you see a zero as the remain when we still have left or right
+function sumHelper(root, remain) {
+    if (!root) {
+        return false;
+    }
+    const nextRemain = remain - root.val;
+    const { left, right } = root;
+    if (!left && !right) {
+        return nextRemain === 0;
+    }
+    return sumHelper(left, nextRemain) || sumHelper(right, nextRemain);
+}
