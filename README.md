@@ -4,9 +4,9 @@ Notes and Practice for frontend interviews
 
 ### Content
 
-#### Leetcode
+#### Javascript-leetcode
 
-Leetcode folder is for my solutions to leetcode problems. For some of these questions, I try more than one solutions. I also have a foler named `leetcode-nodes` for the PDF formats notes I took on my IPad
+Leetcode folder is for my solutions to leetcode problems. For some of these questions, I try more than one solutions. I also have a foler named `leetcode-notes` for the PDF formats notes I took on my IPad
 
 #### Common Data Structure
 
